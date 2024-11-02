@@ -1,64 +1,54 @@
 # Quantum-Inspired Categorization Model
 
-A Streamlit application that visualizes probability amplitudes for concept categorization using quantum-inspired mathematics. This tool helps explore how concepts combine and interfere in human cognition, based on quantum probability theory.
+A Streamlit app for exploring quantum probability concepts through interactive visualization. Model and visualize how concepts combine using quantum-inspired mathematics.
 
 ## Overview
 
-This application implements a quantum probability approach to modeling how humans combine concepts, inspired by cognitive science research suggesting that human categorization often violates classical probability rules. The model represents concepts as complex probability amplitudes and visualizes how they combine, including interference effects.
+This app helps visualize how concepts combine in non-classical ways using quantum probability principles. Users can create and combine concepts represented as complex probability amplitudes, observe interference effects, and see both individual and combined probabilities.
 
 ## Features
 
-- Interactive setting of probability amplitudes for different concepts
-- Real-time visualization of concept vectors in the complex plane
-- Calculation of individual and combined probabilities
-- Visualization of quantum interference effects
-- Dynamic updating of probabilities and visualizations
-- Error handling and input validation
+- Create concepts with custom magnitudes, phases, and colors
+- Combine concepts with interference phase shifts
+- Real-time visualization of probability amplitudes in the complex plane
+- Calculate individual and combined probabilities
+- Interactive interface with tabs for different operations
+- Dynamic probability calculations and visualization updates
 
 ## Dependencies
 
 - streamlit
 - numpy
+- pandas
 - matplotlib
 - Python 3.7+
 
 ## Usage
 
-1. Start the Streamlit application:
+Run the application:
 ```bash
 streamlit run app.py
 ```
 
-2. Adjust the parameters:
-   - Set magnitude and phase for the "Pet" concept
-   - Set magnitude and phase for the "Fish" concept
-   - Observe how the combined "Pet Fish" concept emerges
+The interface has four main tabs:
 
-## Mathematical Background
+1. **Add Concept**: Create individual concepts with magnitude, phase, and color
+2. **Create Composite Concept**: Combine existing concepts with interference phases
+3. **Probabilities**: View individual and combined probability calculations
+4. **Visualization**: See concepts plotted in the complex plane
 
-The application uses quantum probability theory principles:
+## Technical Details
 
-1. **Probability Amplitudes**: Each concept is represented as a complex number ψ = r*e^(iθ), where:
-   - r (magnitude) represents the concept's strength
-   - θ (phase) represents the concept's context or perspective
+The app uses quantum probability principles:
 
-2. **Individual Probabilities**: Calculated using Born's rule: P = |ψ|²
+- Concepts are represented as complex probability amplitudes (ψ = r*e^(iθ))
+- Individual probabilities follow Born's rule (P = |ψ|²)
+- Combined probabilities include interference terms
+- Visualization shows probability amplitudes in the complex plane
 
-3. **Combined Probabilities**: Include interference terms:
-   - P(A+B) = |ψₐ + ψᵦ|² = |ψₐ|² + |ψᵦ|² + 2|ψₐ||ψᵦ|cos(θₐ - θᵦ)
+## Implementation
 
-## Theory and Applications
-
-This model is particularly useful for understanding:
-- Concept combinations that violate classical probability rules
-- Context-dependent categorization
-- Interference effects in human decision-making
-- Non-classical conjunction effects in cognition
-
-## Example Use Cases
-
-1. **Pet-Fish Problem**: Understanding why typical pet fish are rated as better examples of "pet fish" than they are of either "pet" or "fish" individually.
-
-2. **Context Effects**: Exploring how the meaning of concepts changes based on context through phase relationships.
-
-3. **Interference Patterns**: Visualizing how different concept combinations can interfere constructively or destructively.
+The codebase includes three main classes:
+- `Concept`: Base class for individual concepts
+- `CompositeConcept`: Handles concept combinations with interference
+- `ConceptManager`: Manages concept creation and relationships
